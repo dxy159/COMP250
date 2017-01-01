@@ -1,0 +1,23 @@
+1) O(KL)
+The method loadKeys() is dependent on K keys which call insert(). Then, insert() iterates through each character which is L. This produces a result runtime of O(KL)
+
+2) O(L)
+The method contains() includes getPrefixNode() which iterates through all the characters in the key, which depends on L. Everything else in contains() is constant, resulting in O(L).
+
+3) O(KLC)
+Referring back to 1), the runtime of loadKeys is O(KL). However, using a linked list would require it to be dependent on the number of children C, which adding to the initial runtime, would produce a runtime of O(KLC).
+
+4) O(LC)
+Referring back to 2), the runtime of contains() is O(L). However, using a linked list would require it to be dependent on the number of children C, which adding to the initial runtime, would produce a runtime of O(LC).
+
+5) O(K^2L)
+The method loadKeys(), the loop depends on K. For binary search trees, it stores the same set of K keys, so we can see that it would be K(K+1)/2 or 1+2+...+K expanded. For every iteration, we call insert() which is dependant on the maximum length of each key. Therefore we get it greater than or equal to K(K+1)/2*L, assuming the running time depends on how "balanced" the tree is, the runtime is O(K^2L).
+
+6) Ω(K*logK)
+The method loadKeys(), the loop depends on K. For binary search trees, the best case would result in logK from the tree traversal. 
+
+7) O(KL)
+For tree traversal, the worst case would involve iterating through all the keys which would be dependent on K. Then, the number of comparisons of the characters would depend on L, thus resulting in O(KL).
+
+8) Ω(1)
+In the best case, the key would be found in the root, resulting in O(1).
